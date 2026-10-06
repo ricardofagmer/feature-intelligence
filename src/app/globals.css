@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Components consume these through the Tailwind color utilities
+ * mapped in @theme below (bg-surface, text-muted, border-line, ...), so a theme
+ * change happens here and nowhere else.
+ */
+:root {
+  --canvas: #f7f7f9;
+  --surface: #ffffff;
+  --surface-muted: #f1f2f5;
+  --line: #e3e5ea;
+  --line-strong: #cfd3db;
+  --text: #111827;
+  --muted: #4b5563;
+  --subtle: #5f6672;
+
+  --accent: #4338ca;
+  --accent-solid: #4f46e5;
+  --accent-solid-hover: #4338ca;
+  --on-accent: #ffffff;
+  --accent-soft: #eef0ff;
+
+  --success: #166534;
+  --success-soft: #e9f8ef;
+  --warning: #92400e;
+  --warning-soft: #fdf3e1;
+  --danger: #b91c1c;
+  --danger-soft: #fdecec;
+  --neutral-soft: #eef0f3;
+
+  --ring: #6366f1;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #0b0d12;
+    --surface: #12151c;
+    --surface-muted: #181c25;
+    --line: #262b36;
+    --line-strong: #353b48;
+    --text: #e8eaef;
+    --muted: #a7adba;
+    --subtle: #8b92a1;
+
+    --accent: #a5b4fc;
+    --accent-solid: #4f46e5;
+    --accent-solid-hover: #5b54ec;
+    --on-accent: #ffffff;
+    --accent-soft: #1e1f3d;
+
+    --success: #86efac;
+    --success-soft: #11291b;
+    --warning: #fcd34d;
+    --warning-soft: #2c2210;
+    --danger: #fca5a5;
+    --danger-soft: #2f1517;
+    --neutral-soft: #1d222c;
+
+    --ring: #818cf8;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--text);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-on-accent: var(--on-accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-ring: var(--ring);
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Native disclosure markers clash with the custom chevrons used in summaries. */
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
